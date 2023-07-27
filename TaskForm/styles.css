@@ -3,4 +3,85 @@ body {
   background-color: #D8F18E;
 }
 
+.center-app{
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 10px;
+  box-shadow: 9px 9px 15px 7px rgb(173, 171, 171);
+}
+
+h2{
+  color:darkgreen;
+}
+
+.delete-button{
+  margin-left: 20px;
+}
+
+#inProgressTasks{
+  text-align: justify;
+}
+
+#tasksCompleted{
+  text-align: justify;
+}
+
+#tasksCompleted{
+  margin-left: 100px;
+}
+
+.taskslists{
+  display: flex;
+  justify-content: center;
+}
+
+.addTask{
+  text-align: center;
+}
+
+#dialogbtn{
+  color: black;
+  padding: 15px 15px;
+  margin: 20px;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 6px;;
+  border: 2px solid #4CAF50;
+}
+
+#dialogbtn:hover{
+  background-color: #4CAF50;
+  color:white
+  
+}
+
+#tasks{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+li { 
+  margin-bottom:15px;
+  font-size: 20px;
+  }
+
+ul{
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+.complete-button{
+  background-color: white;
+  border: white;
+}
+
+.delete-button{
+  background-color: white;
+  border: white;
+}
 
