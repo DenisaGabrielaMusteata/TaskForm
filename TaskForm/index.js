@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const taskDescription = document.getElementById("description");
   const taskAssignee = document.getElementById("assignee");
 
-  const inProgressTasksList = document.getElementById("inProgressTasks");
+  const ProgressTasksList = document.getElementById("ProgressTasks");
   const completedTasksList = document.getElementById("completedTasks");
   const cancelButton = document.getElementById("cancelFormButton");
 
@@ -17,45 +17,36 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function showTasks() {
-    inProgressTasksList.innerHTML = "";
+    ProgressTasksList.innerHTML = "";
     completedTasksList.innerHTML = "";
-
+  
     tasks.forEach((task, index) => {
       const li = document.createElement("li");
-      li.innerHTML = `
-      
-        ${
-          task.completed
-            ? '<span class="completed"></span>'
-            : '<input type="checkbox" class="complete-button" data-index="' +
-              index +
-              '"></input>'
-        }
-        <span>${task.title}</span>
-        <span>${task.description}</span> 
-        <button class="delete-button" data-index="${index}"><i class="fa-solid fa-trash"></i></button>
-       
-      `;
-      
-      
-
+  
       if (task.completed) {
+        li.innerHTML = `
+          <span class="completed"></span>
+          <span>${task.title}</span>
+          <button class="delete-button" data-index="${index}">Delete</button>
+        `;
         completedTasksList.appendChild(li);
-        
       } else {
-        inProgressTasksList.appendChild(li);
-        
+        li.innerHTML = `
+          <input type="checkbox" class="complete-button" data-index="${index}">
+          <span>${task.title}</span>
+          <button class="delete-button" data-index="${index}">Delete</button>
+        `;
+        ProgressTasksList.appendChild(li);
       }
     });
-    
   }
-
+  
   function addTask() {
     const title = taskTitle.value.trim();
     const description = taskDescription.value.trim();
     const assignee = taskAssignee.value.trim();
 
-    const newTask = { title, description, assignee, completed: false };
+    const newTask = { title, assignee, completed: false };
     tasks.push(newTask);
     saveTasks();
     showTasks();
@@ -102,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  inProgressTasksList.addEventListener("click", function (event) {
+  ProgressTasksList.addEventListener("click", function (event) {
     if (event.target.classList.contains("delete-button")) {
       const index = parseInt(event.target.getAttribute("data-index"));
       deleteTask(index);

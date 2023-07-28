@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-color: #D8F18E;
+  background-color: #e5f5b5;
 }
 
 .center-app{
@@ -12,25 +12,16 @@ body {
   border-radius: 10px;
   box-shadow: 9px 9px 15px 7px rgb(173, 171, 171);
 }
-
 h2{
   color:darkgreen;
 }
 
-.delete-button{
-  margin-left: 20px;
-}
-
-#inProgressTasks{
-  text-align: justify;
-}
-
-#tasksCompleted{
-  text-align: justify;
-}
-
-#tasksCompleted{
-  margin-left: 100px;
+footer {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  overflow: hidden;
 }
 
 .taskslists{
@@ -39,29 +30,6 @@ h2{
 }
 
 .addTask{
-  text-align: center;
-}
-
-#dialogbtn{
-  color: black;
-  padding: 15px 15px;
-  margin: 20px;
-  margin-left: 10px;
-  text-align: center;
-  font-size: 30px;
-  border-radius: 6px;;
-  border: 2px solid #4CAF50;
-}
-
-#dialogbtn:hover{
-  background-color: #4CAF50;
-  color:white
-  
-}
-
-#tasks{
-  display: flex;
-  flex-direction: column;
   text-align: center;
 }
 
@@ -80,8 +48,38 @@ ul{
   border: white;
 }
 
-.delete-button{
-  background-color: white;
-  border: white;
+#ProgressTasks{
+  text-align: justify;
 }
+
+#tasksCompleted{
+  text-align: center;
+  margin-left: 100px;
+}
+
+#dialogbtn{
+  color: black;
+  padding: 15px 15px;
+  margin: 20px;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 6px;;
+  border: 2px solid #4CAF50;
+  width: 50%;
+}
+
+#dialogbtn:hover{
+  background-color: #4CAF50;
+  color:white
+  
+}
+
+#tasks{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
 

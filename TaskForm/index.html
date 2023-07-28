@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <button id="dialogbtn">Add Task</button>
+  <button id="dialogbtn">Add a new task</button>
 <div class="center-app">
   <dialog id="taskForm">
     <form id="addTaskForm">
@@ -29,15 +29,22 @@
   </dialog>
   <div class="taskslists">
   <div id="tasksProgress" >
-    <h2>In Progress</h2>
-    <ul id="inProgressTasks"></ul>
+    <h2>Not Completed</h2>
+    <ul id="ProgressTasks"></ul>
   </div>
   <div id="tasksCompleted">
-    <h2>Complete</h2>
+    <h2>Done!</h2>
     <ul id="completedTasks"></ul>
   </div>
 </div>
 </div>
+
+<footer>
+  <svg viewBox="0 -20 700 110" width="100%" height="110" preserveAspectRatio="none">
+    <path transform="translate(0, -20)" d="M0,10 c80,-22 240,0 350,18 c90,17 260,7.5 350,-20 v50 h-700" fill="rgb(44, 117, 44)" />
+    <path d="M0,10 c80,-18 230,-12 350,7 c80,13 260,17 350,-5 v100 h-700z" fill="rgb(44, 90, 44)" />
+  </svg>
+</footer>
   <script src="index.js"></script>
 </body>
 </html>
