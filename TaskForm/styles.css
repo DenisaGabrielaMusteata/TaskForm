@@ -3,7 +3,7 @@ body {
   background-color: #e5f5b5;
 }
 
-.center-app{
+main{
   background-color: white;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -12,8 +12,16 @@ body {
   border-radius: 10px;
   box-shadow: 9px 9px 15px 7px rgb(173, 171, 171);
 }
+
+h1{
+  color: #12433c;
+  font-size: 3rem;
+  margin-top: 5rem;
+}
+
 h2{
-  color:darkgreen;
+  color: #12433c;
+  text-align: center;
 }
 
 footer {
@@ -21,7 +29,19 @@ footer {
   width: 100%;
   height: 100px;
   bottom: 0;
-  overflow: hidden;
+}
+
+.task-container{
+  background-color: #efe8f3;
+  border-radius: 6px;
+  padding-left: 0.5rem;
+}
+
+.completed{
+  background-color: #e3efc0;
+  border-radius: 6px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .taskslists{
@@ -33,32 +53,81 @@ footer {
   text-align: center;
 }
 
+.complete-button{
+  border-radius: 6px;
+  background-color: #537A5A;
+  border: 0px;
+  color: white;
+}
+
+.redo-button{
+  border-radius: 6px;
+  background-color: #537A5A;
+  border: 0px;
+  color: white;
+}
+
+.edit-button{
+  border-radius: 6px;
+  background-color: #b692c6;
+  border: 0px;
+  color: white;
+}
+
+.delete-button{
+  border-radius: 6px;
+  background-color: #DE6B48;
+  border: 0px;
+  color: white;
+}
+
 li { 
   margin-bottom:15px;
   font-size: 20px;
-  }
+}
+
+.navbar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #e5f5b5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left:0px;
+}
+
+.navbar-item{
+  display: inline;
+  float: right;
+  margin-bottom:0px;
+}
 
 ul{
   list-style: none;
-  padding-inline-start: 0px;
+  padding: 0;
 }
 
-.complete-button{
-  background-color: white;
-  border: white;
+a {
+  display: block;
+  color: #12433c;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-#ProgressTasks{
+#progressTasks{
   text-align: justify;
 }
 
 #tasksCompleted{
-  text-align: center;
+  text-align: justify;
   margin-left: 100px;
 }
 
-#dialogbtn{
-  color: black;
+#dialogBtn{
+  color: #12433c;
   padding: 15px 15px;
   margin: 20px;
   margin-left: 10px;
@@ -69,7 +138,7 @@ ul{
   width: 50%;
 }
 
-#dialogbtn:hover{
+#dialogBtn:hover{
   background-color: #4CAF50;
   color:white
   
@@ -80,6 +149,4 @@ ul{
   flex-direction: column;
   text-align: center;
 }
-
-
 

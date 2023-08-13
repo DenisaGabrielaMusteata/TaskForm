@@ -1,16 +1,18 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const showButton = document.getElementById("dialogbtn");
+
+  const showButton = document.getElementById("dialogBtn");
   const favDialog = document.getElementById("taskForm");
   const addTaskForm = document.getElementById("addTaskForm");
   const taskTitle = document.getElementById("title");
   const taskDescription = document.getElementById("description");
   const taskAssignee = document.getElementById("assignee");
 
-  const ProgressTasksList = document.getElementById("ProgressTasks");
+  const ProgressTasksList = document.getElementById("progressTasks");
   const completedTasksList = document.getElementById("completedTasks");
   const cancelButton = document.getElementById("cancelFormButton");
 
   let tasks = [];
+  let flag = null;
+  let editingIndex = null;
 
   function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -25,36 +27,83 @@ document.addEventListener('DOMContentLoaded', function () {
   
       if (task.completed) {
         li.innerHTML = `
-          <span class="completed"></span>
-          <span>${task.title}</span>
-          <button class="delete-button" data-index="${index}">Delete</button>
-        `;
+          <span class="completed">Task title: ${task.title}</span>
+          <br>
+          <button class="delete-button" data-index="${index}">Delete task</button>
+          <button class="redo-button" data-index="${index}">Redo task</button>
+          `;
         completedTasksList.appendChild(li);
       } else {
         li.innerHTML = `
-          <input type="checkbox" class="complete-button" data-index="${index}">
+        <div class="task-container">
+          <span>Task title: </span>
           <span>${task.title}</span>
-          <button class="delete-button" data-index="${index}">Delete</button>
+          <br>
+          <span>Task description: </span>
+          <span>${task.description}</span>
+          <br>
+        </div>
+          <button class="complete-button" data-index="${index}">Task completed</button>
+          <button class="delete-button" data-index="${index}">Delete task</button>
+          <button class="edit-button" data-index="${index}">Edit</button>
         `;
         ProgressTasksList.appendChild(li);
       }
     });
   }
   
-  function addTask() {
-    const title = taskTitle.value.trim();
-    const description = taskDescription.value.trim();
-    const assignee = taskAssignee.value.trim();
+  function editTask(index){
+  
+    const taskToEdit = tasks[index];
 
-    const newTask = { title, assignee, completed: false };
-    tasks.push(newTask);
+  // Fill the form fields with task details
+  taskTitle.value = taskToEdit.title;
+  taskDescription.value = taskToEdit.description;
+  taskAssignee.value = taskToEdit.assignee;
+
+  // Open the dialog for editing
+  favDialog.showModal();
+
+  console.log("task editat");
+  flag = 1;
+  editingIndex = index;
+  }
+
+  function addTask() {
+      const title = taskTitle.value.trim();
+      const description = taskDescription.value.trim();
+      const assignee = taskAssignee.value.trim();
+    if (flag == null){
+      const newTask = { title, description, assignee, completed: false };
+      tasks.push(newTask);
+      saveTasks();
+      showTasks();
+      closeTaskForm();
+
+    }else if(flag !== null){
+
+    tasks[editingIndex].title = title;
+    tasks[editingIndex].description = description;
+    tasks[editingIndex].assignee = assignee;
+
     saveTasks();
     showTasks();
     closeTaskForm();
+    console.log(title);
+    }
   }
+
+  
+
 
   function completeTask(index) {
     tasks[index].completed = true;
+    saveTasks();
+    showTasks();
+  }
+
+  function redoTask(index){
+    tasks[index].completed = false;
     saveTasks();
     showTasks();
   }
@@ -78,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addTaskForm.reset();
   }
 
+ 
   showButton.addEventListener("click", openTaskForm);
   cancelButton.addEventListener("click",cancelForm);
 
@@ -86,10 +136,15 @@ document.addEventListener('DOMContentLoaded', function () {
     addTask();
   });
 
+
+
   completedTasksList.addEventListener("click", function (event) {
     if (event.target.classList.contains("delete-button")) {
       const index = parseInt(event.target.getAttribute("data-index"));
       deleteTask(index);
+    }else if (event.target.classList.contains("redo-button")){
+      const index = parseInt(event.target.getAttribute("data-index"));
+      redoTask(index);
     }
   });
 
@@ -100,6 +155,10 @@ document.addEventListener('DOMContentLoaded', function () {
     } else if (event.target.classList.contains("complete-button")) {
       const index = parseInt(event.target.getAttribute("data-index"));
       completeTask(index);
+    }else if (event.target.classList.contains("edit-button")) {
+      console.log("Edit button clicked");
+      const index = parseInt(event.target.getAttribute("data-index"));
+      editTask(index);
     }
   });
 
@@ -109,4 +168,4 @@ document.addEventListener('DOMContentLoaded', function () {
     tasks = JSON.parse(storedTasks);
     showTasks();
   }
-});
+
