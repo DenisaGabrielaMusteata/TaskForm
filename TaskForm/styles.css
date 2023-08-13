@@ -1,6 +1,5 @@
 /* I made some modifications, added different fonts, sizes, and also made it responsive */
 body {
-  text-align: center;
   background-color: #e5f5b5;
   margin: 0;
 }
@@ -20,6 +19,7 @@ h1{
   font-size: 3rem;
   margin-top: 5rem;
   font-family: Borel;
+  text-align: center;
 }
 
 h2{
@@ -35,6 +35,12 @@ footer {
   margin-bottom: 0;
   padding-top: 155px;
 }
+
+label{
+  font-family: Quicksand;
+  font-weight:500;
+}
+
 
 .task-container{
   background-color: #efe8f3;
@@ -56,6 +62,24 @@ footer {
 }
 
 .addTask{
+  border-radius: 6px;
+  background-color: #537A5A;
+  border: 0px;
+  color: white;
+  font-size: 1.2rem;
+  font-family: Quicksand;
+  font-weight:500;
+  text-align: center;
+}
+
+.cancelTask{
+  border-radius: 6px;
+  background-color: #DE6B48;
+  border: 0px;
+  color: white;
+  font-size: 1.2rem;
+  font-family: Quicksand;
+  font-weight:500;
   text-align: center;
 }
 
@@ -138,6 +162,13 @@ a {
   text-decoration: none;
 }
 
+#taskForm{
+  text-align: justify;
+  border-color: #12433c;
+  border-radius: 6px;
+  font-size: 1.8rem;
+}
+
 #progressTasks{
   text-align: justify;
 }
@@ -148,10 +179,13 @@ a {
 }
 
 #dialogBtn{
+  display:flex;
+  justify-content: center;
   color: #12433c;
   padding: 15px 15px;
   margin: 20px;
   margin-left: 10px;
+  border:0;
   text-align: center;
   font-size: 30px;
   border-radius: 6px;;
@@ -161,6 +195,11 @@ a {
   font-weight: 500;
 }
 
+.newTaskButton{
+  display:flex;
+  justify-content: center;
+}
+ 
 #dialogBtn:hover{
   background-color: #4CAF50;
   color:white

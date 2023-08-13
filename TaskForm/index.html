@@ -27,7 +27,10 @@
 
 <br>
 
-<button id="dialogBtn">Add a new task</button>
+<div class="newTaskButton">
+  <button id="dialogBtn">Add a new task</button>
+</div>
+
 
 <ul class="navbar"> <!-- added this navbar for the feature, I intend to make a few more pages --> 
   <li class="navbar-item"><a href="about.asp">About</a></li>
@@ -46,19 +49,19 @@
   <form id="addTaskForm">
     <p>
       <label for="title">Title: </label>
-      <input type="text" id="title" maxlength="50" required>  
+      <input class="dialogItem" type="text" id="title" maxlength="50" required>  
     </p>
     <p>
       <label for="description">Description: </label>
-      <textarea id="description" maxlength="250" required></textarea>  
+      <textarea class="dialogItem" id="description" maxlength="250" required></textarea>  
     </p>
     <p>
       <label for="assignee">Assignee: </label>
-      <input type="email" id="assignee" required>  
+      <input class="dialogItem" type="email" id="assignee" required>  
     </p>
    
-    <button type="submit">Add task</button>
-    <button type="button" id="cancelFormButton">Cancel action</button>
+    <button class="addTask" type="submit">Add task</button>
+    <button class="cancelTask" type="button" id="cancelFormButton">Cancel action</button>
   </form>
 </dialog>
 
