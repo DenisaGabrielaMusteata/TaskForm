@@ -1,6 +1,8 @@
+/* I made some modifications, added different fonts, sizes, and also made it responsive */
 body {
   text-align: center;
   background-color: #e5f5b5;
+  margin: 0;
 }
 
 main{
@@ -17,24 +19,28 @@ h1{
   color: #12433c;
   font-size: 3rem;
   margin-top: 5rem;
+  font-family: Borel;
 }
 
 h2{
   color: #12433c;
   text-align: center;
+  font-family: Quicksand;
 }
 
 footer {
-  position: absolute;
+  position: static;
   width: 100%;
   height: 100px;
-  bottom: 0;
+  margin-bottom: 0;
+  padding-top: 155px;
 }
 
 .task-container{
   background-color: #efe8f3;
   border-radius: 6px;
   padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .completed{
@@ -58,6 +64,9 @@ footer {
   background-color: #537A5A;
   border: 0px;
   color: white;
+  font-size: 1rem;
+  font-family: Quicksand;
+  font-weight:500;
 }
 
 .redo-button{
@@ -65,6 +74,9 @@ footer {
   background-color: #537A5A;
   border: 0px;
   color: white;
+  font-size: 1rem;
+  font-family: Quicksand;
+  font-weight:500;
 }
 
 .edit-button{
@@ -72,6 +84,9 @@ footer {
   background-color: #b692c6;
   border: 0px;
   color: white;
+  font-size: 1rem;
+  font-family: Quicksand;
+  font-weight:500;
 }
 
 .delete-button{
@@ -79,11 +94,16 @@ footer {
   background-color: #DE6B48;
   border: 0px;
   color: white;
+  font-size: 1rem;
+  font-family: Quicksand;
+  font-weight:500;
 }
 
 li { 
   margin-bottom:15px;
   font-size: 20px;
+  font-family: Quicksand;
+  font-weight:500;
 }
 
 .navbar{
@@ -102,6 +122,7 @@ li {
   display: inline;
   float: right;
   margin-bottom:0px;
+  font-family: Quicksand;
 }
 
 ul{
@@ -136,6 +157,8 @@ a {
   border-radius: 6px;;
   border: 2px solid #4CAF50;
   width: 50%;
+  font-family: Quicksand;
+  font-weight: 500;
 }
 
 #dialogBtn:hover{
@@ -144,9 +167,67 @@ a {
   
 }
 
-#tasks{
+.tasks{
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
+/* Made the app responsive */
+
+@media (max-width: 1366px) {
+  main {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    margin-top: 3rem;
+  }
+
+  li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  #dialogBtn {
+    padding: 10px;
+    font-size: 24px;
+  }
+
+  footer {
+    position: static;
+    height: auto;
+  }
+
+  #tasksCompleted{
+    text-align: center;
+    margin-left:0;
+  }
+
+  .task-container{
+    background-color: #efe8f3;
+    border-radius: 6px;
+    width:50%;
+    margin: auto;
+    align-items: center;
+  }
+ 
+  .taskslists{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #progressTasks{
+    text-align: center;
+  }
+
+  #completedTasks{
+    text-align: center;
+  }
+
+}
